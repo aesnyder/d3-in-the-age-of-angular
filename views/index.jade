@@ -1,14 +1,15 @@
-!= title_with_markup()
+h1 D3 in the Age of Angular
 
-:markdown
-  **Whoo!** You got everything working. Now get to making cool things : )
+chart-donut(dataset="people")
+chart-donut(dataset="netrunners")
 
-p this file can be found in views/index.jade
+input(ng-model = "newPerson.name")
+select(ng-model = "newPerson.gender")
+  option(value="male") male
+  option(value="female") female
 
-include _partial
+button(ng-click='add(newPerson)') add
 
-:markdown
-  For help and documentation, check out [http://roots.cx](http://roots.cx)
-
-:coffeescript
-  console.log 'you can even use coffeescript in your views, aw yeah'
+ul
+  li(ng-repeat="person in people")
+    h4 {{person.name}} {{person.gender}}

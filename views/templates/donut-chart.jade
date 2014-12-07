@@ -1,0 +1,10 @@
+svg.inline-block
+  g(
+    ng-attr-transform='translate({{ graph.radius }}, {{ graph.radius }})'
+  )
+    path(
+      ng-repeat="(index, slice) in donutData"
+      ng-attr-d='{{ arc(slice, index) }}'
+      class="bg-{{slice.data.name}} {{ slice.data.name }} arc"
+      ng-attr-data-name="{{ slice.data.name }}"
+    )
